@@ -38,10 +38,10 @@ int main(int argc, char** argv){
 
     string line, movieName;
     double movieRating;
+    Movies movieList;    
     // Read each file and store the name and rating
     while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
-            // Use std::string movieName and double movieRating
-            // to construct your Movie objects
+            movieList.addMovie(movieName,movieRating);            
             // cout << movieName << " has rating " << movieRating << endl;
             // insert elements into your data structure
     }
@@ -49,7 +49,7 @@ int main(int argc, char** argv){
     movieFile.close();
 
     if (argc == 2){
-            //print all the movies in ascending alphabetical order of movie names
+            movieList.printAllMovies();
             return 0;
     }
 
@@ -65,16 +65,20 @@ int main(int argc, char** argv){
         if (!line.empty()) {
             prefixes.push_back(line);
         }
+        for ( string a : prefixes ) {
+		movieList.printPrefixMovies(a);
+	}
+	for ( string a: prefixes) {
+		movieList.printHighestRating(a);
+	}
     }
 
     //  For each prefix,
     //  Find all movies that have that prefix and store them in an appropriate data structure
     //  If no movie with that prefix exists print the following message
-    cout << "No movies found with prefix "<<"<replace with prefix>" << endl;
 
     //  For each prefix,
     //  Print the highest rated movie with that prefix if it exists.
-    cout << "Best movie with prefix " << "<replace with prefix>" << " is: " << "replace with movie name" << " with rating " << std::fixed << std::setprecision(1) << "replace with movie rating" << endl;
 
     return 0;
 }
