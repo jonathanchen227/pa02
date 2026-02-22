@@ -3,6 +3,7 @@
 #include <map>
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 void Movies::addMovie(string name, double rating) {
