@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void Movies::addMovie(string name, double rating) {
