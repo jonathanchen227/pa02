@@ -11,7 +11,7 @@ void Movies::addMovie(string name, double rating) {
 } 
 void Movies::printAllMovies() {
 	for ( auto&[name,rating] : movieList ) {
-		std::cout << name << " ," << rating << std::endl;
+		std::cout << name << ", " << rating << std::endl;
 	}
 }
 priority_queue<pair<string,double>, vector<pair<string,double>>,Movies::Rank> Movies::createPriorityQueue(string prefix) {
@@ -31,7 +31,7 @@ void Movies::printPrefixMovies(string prefix) {
                 cout<< "No movies found with prefix " << prefix << endl;
         }
 	while ( !pq.empty() ) {
-		cout << (pq.top()).first << " ," << (pq.top()).second << endl;
+		cout << (pq.top()).first << ", " << (pq.top()).second << endl;
 		pq.pop();
 	}
 }
