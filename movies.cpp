@@ -28,7 +28,7 @@ priority_queue<pair<string,double>, vector<pair<string,double>>,Movies::Rank> Mo
 void Movies::printPrefixMovies(string prefix) {
 	priority_queue<pair<string,double>, vector<pair<string,double>>,Movies::Rank> pq = createPriorityQueue(prefix);
 	if ( pq.empty() ) {
-                cout<< "No movies found with prefix " << prefix << endl;
+                cout<< "No movies found with prefix " << prefix;
         }
 	while ( !pq.empty() ) {
 		cout << (pq.top()).first << ", " << (pq.top()).second << endl;
