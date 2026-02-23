@@ -25,7 +25,7 @@ void addMovie(string name, double rating);
 
 void printAllMovies();
 
-void printPrefixMovies(string prefix);
+bool printPrefixMovies(string prefix);
 
 void printHighestRating(string prefix);
 };

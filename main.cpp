@@ -67,8 +67,12 @@ int main(int argc, char** argv){
         }
     }
     for ( string a : prefixes ) {
-                movieList.printPrefixMovies(a);
+        bool it = movieList.printPrefixMovies(a);        
+	if ( it ) {
+		cout << endl;
+	}
     }
+    cout << endl;
     for ( string a: prefixes) {
                 movieList.printHighestRating(a);
     }

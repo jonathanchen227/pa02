@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <cctype>
 using namespace std;
 
 void Movies::addMovie(string name, double rating) {
@@ -25,15 +26,19 @@ priority_queue<pair<string,double>, vector<pair<string,double>>,Movies::Rank> Mo
         }
 	return pq;
 }
-void Movies::printPrefixMovies(string prefix) {
+bool Movies::printPrefixMovies(string prefix) {
 	priority_queue<pair<string,double>, vector<pair<string,double>>,Movies::Rank> pq = createPriorityQueue(prefix);
 	if ( pq.empty() ) {
-                cout<< "No movies found with prefix " << prefix;
+                cout<< "No movies found with prefix " << prefix << "\n";
+		return false;
         }
 	while ( !pq.empty() ) {
 		cout << (pq.top()).first << ", " << (pq.top()).second << endl;
+		
 		pq.pop();
+	
 	}
+	return true;
 }
 
 
