@@ -31,7 +31,7 @@ void Movies::printPrefixMovies(string prefix) {
                 cout<< "No movies found with prefix " << prefix << endl;
         }
 	while ( !pq.empty() ) {
-		cout << (pq.top()).first << ", " << (pq.top()).second << endl;
+		cout << (pq.top()).first << " ," << (pq.top()).second << endl;
 		pq.pop();
 	}
 }
