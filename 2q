@@ -22,7 +22,7 @@ struct Rank {
 		}
 		return newS;
 	};
-        if (a.second == b.second ) {return removeSpaces(b.first) > removeSpaces(a.first);}
+        if (a.second == b.second ) {return removeSpaces(b).first > removeSpaces(a).first;}
         else { return a.second < b.second ;}
 }
 };
