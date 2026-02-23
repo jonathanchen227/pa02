@@ -72,7 +72,7 @@ int main(int argc, char** argv){
         for ( string a: prefixes) {
                 movieList.printHighestRating(a);
     }    
-
+    cout << endl;
     //  For each prefix,
     //  Find all movies that have that prefix and store them in an appropriate data structure
     //  If no movie with that prefix exists print the following message
