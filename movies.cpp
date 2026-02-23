@@ -57,7 +57,12 @@ void Movies::printHighestRating( string prefix ) {
 			}
 		    }
 		}
+	if ( highestRatedMovie == "" ) {
+		cout << "No movies found with prefix " << prefix << endl;
+	}
+	else {
 				
-	cout << "Best movie with prefix " << prefix << " is: "<< highestRatedMovie << " with rating " << highestRating << endl;
+	cout << highestRatedMovie << ", " << highestRating << endl;
+	}
 }
 
