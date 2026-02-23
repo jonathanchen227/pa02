@@ -13,16 +13,19 @@ map<string,double> movieList;
 public:
 struct Rank {
    bool operator() (pair<string,double> a, pair<string,double> b) {
-	auto removeSpaces =[](string s ) {
-		string newS;
-		for ( char x : s ) {
-			if ( x != ' ' ) {
-				newS += x;
+        if (a.second == b.second ) {
+		string string1 = a.first;
+		string string2 = b.first;
+		size_t length = min ( string1.size(), string2.size() );
+		for ( size_t i = 0 ; i < length; i ++) {
+			if ( string1[i] != string2[i] ) {
+				if ( string1[i]==' ') return true;
+				if ( string2[i]==' ') return false;
+				return string1[i] < string2[i];
 			}
 		}
-		return newS;
-	};
-        if (a.second == b.second ) {return removeSpaces(b.first) > removeSpaces(a.first);}
+		return string1.size() < string2.size();
+	}
         else { return a.second < b.second ;}
 }
 };
