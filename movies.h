@@ -19,8 +19,8 @@ struct Rank {
 		size_t length = min ( string1.size(), string2.size() );
 		for ( size_t i = 0 ; i < length; i ++) {
 			if ( string1[i] != string2[i] ) {
-				if ( string2[i]==' ') return true;
-				if ( string1[i]==' ') return false;
+				if ( string1[i]==' ') return true;
+				if ( string2[i]==' ') return false;
 				return string1[i] < string2[i];
 			}
 		}
