@@ -65,13 +65,13 @@ int main(int argc, char** argv){
         if (!line.empty()) {
             prefixes.push_back(line);
         }
-        for ( string a : prefixes ) {
-		movieList.printPrefixMovies(a);
-	}
-	for ( string a: prefixes) {
-		movieList.printHighestRating(a);
-	}
     }
+    for ( string a : prefixes ) {
+                movieList.printPrefixMovies(a);
+        }
+        for ( string a: prefixes) {
+                movieList.printHighestRating(a);
+    }    
 
     //  For each prefix,
     //  Find all movies that have that prefix and store them in an appropriate data structure
