@@ -14,17 +14,7 @@ public:
 struct Rank {
    bool operator() (pair<string,double> a, pair<string,double> b) {
         if (a.second == b.second ) {
-		string string1 = a.first;
-		string string2 = b.first;
-		size_t length = min ( string1.size(), string2.size() );
-		for ( size_t i = 0 ; i < length; i ++) {
-			if ( string1[i] != string2[i] ) {
-				if ( string1[i]==' ') return true;
-				if ( string2[i]==' ') return false;
-				return string1[i] < string2[i];
-			}
-		}
-		return string1.size() < string2.size();
+		return a.first > b.first;
 	}
         else { return a.second < b.second ;}
 }
