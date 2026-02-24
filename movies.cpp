@@ -50,7 +50,7 @@ void Movies::printHighestRating( string prefix ) {
 		if ( name.substr(0,length).compare(prefix)==0 ) {
 			if ( rating < highestRating ) { continue; }
 			if ( rating == highestRating ) {
-				if ( name > highestRatedMovie ) {
+				if ( name < highestRatedMovie ) {
 					highestRating = rating;
 					highestRatedMovie = name;
 				}
