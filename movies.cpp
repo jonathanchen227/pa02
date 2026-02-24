@@ -44,7 +44,7 @@ bool Movies::printPrefixMovies(string prefix) {
 
 void Movies::printHighestRating( string prefix ) {
 	string highestRatedMovie = "";
-	double highestRating = 0.0;
+	double highestRating = 0;
 	int length = prefix.length();
 	for ( auto&[name,rating] : movieList ) {
 		if ( name.substr(0,length).compare(prefix)==0 ) {
@@ -56,7 +56,7 @@ void Movies::printHighestRating( string prefix ) {
 				}
 
 			}
-			if( rating > highestRating ) {
+			if( rating > highestRating || highestRating == 0 ) {
 				highestRating = rating;
 				highestRatedMovie = name;
 			}
