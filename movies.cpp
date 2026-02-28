@@ -49,7 +49,10 @@ void Movies::printHighestRating( string prefix ) {
 	int length = prefix.length();
 	auto iterator = movieList.lower_bound(prefix);
         while ( iterator != movieList.end() && iterator->first.compare(0,prefix.length(),prefix) == 0 ) {
-                     if ( iterator->second < highestRating ) { continue; }
+                     if ( iterator->second < highestRating ) { 
+				iterator++;
+				continue;
+			 }
                         if ( iterator->second == highestRating ) {
                                 if ( iterator->first < highestRatedMovie ) {
                                         highestRating = iterator->second;
