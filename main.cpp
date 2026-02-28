@@ -20,6 +20,7 @@ using namespace std;
 
 bool parseLine(string &line, string &movieName, double &movieRating);
 
+
 int main(int argc, char** argv){
     if (argc < 2){
         cerr << "Not enough arguments provided (need at least 1 argument)." << endl;
@@ -85,8 +86,9 @@ int main(int argc, char** argv){
     return 0;
 }
 
-/* Add your run time analysis for part 3 of the assignment here as commented block*/
-
+/* The time complexity for part 2a of the project is O(logN + MlogM). Because a map is a binary search tree, it will take at most logN iterations to find any node using lowerbound. Next, pushing each prefix value into the priority queue takes at most log(M) which is done M times. The time complexity for part 2b of this project is O(logN + M). logN is already explained while the code iterates through each prefix once for a total of M iterations, resulting in O(logN+M). The runtime for input_20_random.csv is 0.069 seconds, the runtime for input_100_random.csv is 0.046 seconds, the runtime for input_1000_random.csv is 0.049 seconds, and the runtime for input_76920_random.csv is 0.178 seconds. */
+/* The space complexity for part 2a of the project is O(logM) because each value with the correct prefix must be added to the priority queue. Meanwhile, the space complexity for part 2b of the project is O(L) where L is the length of the string highestRatedMovie because the only things that are created for that function are the string, the double rating, and the iterator, the length of the string. */
+/*I was aiming for a low time complexity. I think that I was successful in doing this because instead of using for ( auto& [name,rating] : moviesList ), I used an iterator search for the first occurence of a prefix and then iterated through the ordered map until the prefix was no longer there. */ 
 bool parseLine(string &line, string &movieName, double &movieRating) {
     int commaIndex = line.find_last_of(",");
     movieName = line.substr(0, commaIndex);
