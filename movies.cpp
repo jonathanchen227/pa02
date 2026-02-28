@@ -11,18 +11,19 @@ void Movies::addMovie(string name, double rating) {
 	movieList[name] = rating;
 } 
 void Movies::printAllMovies() {
-	for ( auto&[name,rating] : movieList ) {
-		std::cout << name << ", " << rating << std::endl;
-	}
+	auto iterator = movieList.begin();
+        while ( iterator != movieList.end() ) {
+                    cout << iterator->first << ", " << iterator->second << endl;
+                    iterator++;
+        }
 }
 priority_queue<pair<string,double>, vector<pair<string,double>>,Movies::Rank> Movies::createPriorityQueue(string prefix) {
-	int length = prefix.length();
         priority_queue<pair<string,double>, vector<pair<string,double>>,Movies::Rank> pq;
-        for ( auto&[name,rating] : movieList ) {
-                if (name.substr(0,length).compare(prefix)==0 ) {
-                    pair<string,double> myPair = {name,rating};
+        auto iterator = movieList.lower_bound(prefix);
+	while ( iterator != movieList.end() && iterator->first.compare(0,prefix.length(),prefix) == 0 ) {
+                    pair<string,double> myPair = {iterator->first,iterator->second};
                     pq.push(myPair);
-                }
+	            iterator++;
         }
 	return pq;
 }
@@ -46,22 +47,22 @@ void Movies::printHighestRating( string prefix ) {
 	string highestRatedMovie = "";
 	double highestRating = -1;
 	int length = prefix.length();
-	for ( auto&[name,rating] : movieList ) {
-		if ( name.substr(0,length).compare(prefix)==0 ) {
-			if ( rating < highestRating ) { continue; }
-			if ( rating == highestRating ) {
-				if ( name < highestRatedMovie ) {
-					highestRating = rating;
-					highestRatedMovie = name;
-				}
+	auto iterator = movieList.lower_bound(prefix);
+        while ( iterator != movieList.end() && iterator->first.compare(0,prefix.length(),prefix) == 0 ) {
+                     if ( iterator->second < highestRating ) { continue; }
+                        if ( iterator->second == highestRating ) {
+                                if ( iterator->first < highestRatedMovie ) {
+                                        highestRating = iterator->second;
+                                        highestRatedMovie = iterator->first;
+                                }
 
-			}
-			if( rating > highestRating || highestRating == -1 ) {
-				highestRating = rating;
-				highestRatedMovie = name;
-			}
-		    }
-		}
+                        }
+                        if( iterator->second > highestRating || highestRating == -1 ) {
+                                highestRating = iterator->second;
+                                highestRatedMovie = iterator->first;
+                        }
+                    iterator++;
+        }
 	if ( highestRatedMovie == "" ) {
 	}
 	else {
